@@ -1,3 +1,7 @@
 <h1>Edit division</h1>
 
-<%= render "layouts/division_form" %>
+<% if current_user.admin %>
+  <%= render "layouts/division_form" %>
+<% else %>
+  <p>Admin Only</p>
+<% end %>

@@ -17,11 +17,11 @@
 <p><%= link_to "Add a employee", new_project_employee_path(@project) %></p>
 
 
-
-
-<p><%= link_to "Edit", edit_project_path(@project) %></p>
-<p><%= link_to "Delete", project_path(@project),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
-
-<p><%= link_to "Return to projects", projects_path %></p>
+<% if current_user.admin %>
+  <p><%= link_to "Edit", edit_project_path(@project) %></p>
+  <p><%= link_to "Delete", project_path(@project),
+    :data => {:confirm => "You sure?",
+    :method => "delete"} %></p>
+<% else %>
+  <p>Admin Only</p>
+<% end %>
